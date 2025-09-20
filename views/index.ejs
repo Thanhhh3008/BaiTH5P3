@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+  <h1 class="mb-4">Welcome to MyShop</h1>
+
+  <!-- Search -->
+  <form method="get" action="/products" class="row g-2 mb-3">
+    <div class="col-md-8">
+      <input type="text" name="search" class="form-control" placeholder="Search products...">
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-primary w-100">Search</button>
+    </div>
+  </form>
+
+  <!-- Suppliers filter -->
+  <h5>Filter by Supplier</h5>
+  <ul class="list-group mb-4">
+    <% suppliers.forEach(s => { %>
+      <li class="list-group-item">
+        <a href="/products?supplier=<%= s._id %>"><%= s.name %></a>
+      </li>
+    <% }) %>
+  </ul>
+</div>
+
+<%- include('partials/footer') %>
